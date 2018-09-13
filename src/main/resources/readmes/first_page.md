@@ -10,4 +10,4 @@ TODO
 
 * ABC - список 1
 
-[<= содержание](https://github.com/steklopod/Functions/blob/master/readme.md)
+[<= содержание](https://github.com/steklopod/Timely-Effects/blob/master/readme.md)
