@@ -6,10 +6,10 @@
  
 
 
-* [???](https://github.com/steklopod/Functions/blob/master/src/main/resources/readmes/first_page.md)
+* [???](https://github.com/steklopod/Timely/blob/master/src/main/resources/readmes/first_page.md)
 
 
-![alt text](https://github.com/steklopod/Functions/blob/master/src/main/resources/images/timings_on_tipical_ops_on_typical_pc.png?raw=true "scala_vs_java")
+![alt text](https://github.com/steklopod/Timely-Effects/src/main/resources/images/timings_on_tipical_ops_on_typical_pc.png "time of ops")
 
 
 Для каждого примера существует тест.
