@@ -6,5 +6,9 @@
 
 * [Эффект задержки (теория)](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/theory_1.md)
 
+* [Монада Future[T]](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/Future.md)
+
 * [Наблюдатель (Observable)](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/Observable.md)
 
+
+_Если этот проект окажется полезным тебе - нажми на кнопочку **`★`** в правом верхнем углу._
