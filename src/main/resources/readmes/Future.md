@@ -82,7 +82,7 @@ onComplete будет принимать два обратных вызова о
 обратного вызова побочный эффект будет происходить только один раз. Так что это очень важно с будущим.
 Большое вам спасибо, и увидим вас в следующей лекции, где мы поговорим о функциях более высокого порядка на фьючерсах.
 
-![alt text](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/images/future-thread.jpg.png "Future 2")
+![alt text](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/images/future-thread.jpg "Future 2")
 
 
 _Если этот проект окажется полезным тебе - нажми на кнопочку **`★`** в правом верхнем углу._

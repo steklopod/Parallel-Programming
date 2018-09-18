@@ -1,3 +1,4 @@
+
 ### Эффект задержки (Latency as an effect)
 
 
