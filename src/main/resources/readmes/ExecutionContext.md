@@ -116,7 +116,6 @@
 если уведомление с блокировкой пула не может порождать новых работников, как вы ожидали бы, и когда новые рабочие 
 создаются, их может быть целых 32767. Чтобы дать вам представление, следующий код будет использовать 32000 потоков:
 
-
 ```scala
     implicit val ec = ExecutionContext.global
     
@@ -131,6 +130,39 @@
 
 Если вам нужно завернуть длительные операции блокировки, мы рекомендуем использовать выделенный `ExecutionContext`, 
 например, путем переноса `Executor` из Java. 
+
+### Адаптация `Executor` из Java
+
+Используя метод `ExecutionContext.fromExecutor`, вы можете включить Java `Executor` в `ExecutionContext`. Например:
+
+```scala
+    ExecutionContext.fromExecutor(new ThreadPoolExecutor( /* ваша конфигурация */ ))
+```
+
+### Синхронный контекст выполнения
+
+Может возникнуть соблазн иметь `ExecutionContext`, который запускает вычисления в текущем потоке:
+
+```scala
+    val currentThreadExecutionContext = ExecutionContext.fromExecutor(
+      new Executor {
+        // Не делай это!
+        def execute(runnable: Runnable) { runnable.run() }
+    })
+```
+
+Этого следует избегать, поскольку он вводит недетерминированность в исполнение вашего фьючерса.
+
+```scala
+    Future {
+      doSomething
+    }(ExecutionContext.global).map {
+      doSomethingElse
+    }(currentThreadExecutionContext)
+```
+
+Вызов `doSomethingElse` может либо выполняться в потоке `doSomething`, либо в основном потоке и поэтому быть либо 
+асинхронным, либо синхронным. Как поясняется здесь, обратный вызов не должен быть обоим.
 
 
 _Если этот проект окажется полезным тебе - нажми на кнопочку **`★`** в правом верхнем углу._
