@@ -8,7 +8,7 @@
  в которых мы можем применить параллельные вычисления и факторы, влияющие на время вычислений. Мы также рассмотрим 
  сравнительный анализ параллельных программ.
 
-![alt text](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/images/parallel_computing.jpg "parallel_computing")
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/parallel_computing.jpg "parallel_computing")
 
 **Параллельные вычисления** - это тип вычислений, в котором различные вычисления могут выполняться одновременно.
 
@@ -16,13 +16,13 @@ _Основной принцип_: проблему можно разделит�
 
 ### Содержание:
 
-* [0 - Эффект задержки (вступление)](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/theory_1.md)
+* [0 - Эффект задержки (вступление)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/theory_1.md)
 
-* [1 - Параллельность уровня задачи](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/task_level_parallelism.md)
+* [1 - Параллельность уровня задачи](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/task_level_parallelism.md)
 
-* [Монада Future[T]](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/Future.md)
+* [Монада Future[T]](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Future.md)
 
-* [Наблюдатель (Observable)](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/Observable.md)
+* [Наблюдатель (Observable)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Observable.md)
 
 ___
 
@@ -57,7 +57,7 @@ ___
 содержит несколько независимых параллельных единиц, называемых потоками. Потоки имеют одинаковое адресное пространство.
 
 
-[=>далее: Эффект задержки (Latency as an effect)](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/theory_1.md)
+[=>далее: Эффект задержки (Latency as an effect)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/theory_1.md)
 
 
 _Если этот проект окажется полезным тебе - нажми на кнопочку **`★`** в правом верхнем углу._

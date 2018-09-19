@@ -3,7 +3,7 @@
 Чтение из памяти занимает много времени. И отправка пакета из Европы и обратно занимает еще больше времени. Но на этот раз 
 это выражается в наносекундах или микросекундах, что не очень интуитивно понятно для людей. 
 
-![alt text](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/images/timings_on_tipical_ops_on_typical_pc.png "time of ops")
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/timings_on_tipical_ops_on_typical_pc.png "time of ops")
 
 Итак, давайте посмотрим на таблицу, в которой указывается время, когда различные операции выполняются на компьютере. 
 _Обратите внимание, что эти времена будут меняться, потому что компьютеры меняются, поэтому возьмите это как приблизительное 
@@ -23,7 +23,7 @@ _Обратите внимание, что эти времена будут ме
 это не только требует времени, но и может потерпеть неудачу. Но в предыдущих лекциях мы имели дело с провалом. Но это 
 еще хуже. Если вы посмотрите на отправку пакета из США в Европу и обратно, то в человеческие времена это занимает 5 лет.
 
-![alt text](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/images/send_to_europe.png "send_to_europe")
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/send_to_europe.png "send_to_europe")
 
 Таким образом, под этой простой программой была скрыта какая-то огромная латентность (задержка), какое-то огромное время, которое 
 потребовалось для этого вычисления. И это не было видно в типе, поэтому давайте сделаем это снова видимым в типе. Потому 
@@ -39,8 +39,8 @@ _Обратите внимание, что эти времена будут ме
 ввести тип где вы можете зарегистрировать обратный вызов, который будет вызываться после завершения этого вычисления. И 
 снова это вычисление может завершиться успешно или с исключением.
 
-[=> Параллельность уровня задачи](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/readmes/task_level_parallelism.md)
+[=> Параллельность уровня задачи](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/task_level_parallelism.md)
 
 _Если этот проект окажется полезным тебе - нажми на кнопочку **`★`** в правом верхнем углу._
 
-[<= содержание](https://github.com/steklopod/Timely-Effects/blob/master/readme.md)
+[<= содержание](https://github.com/steklopod/Parallel-Programming/blob/master/readme.md)

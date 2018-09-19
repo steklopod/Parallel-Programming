@@ -14,7 +14,7 @@
 что он пока недоступен, мы это проигнорируем. Через пару уроков мы поговорим об этом немного подробнее. Но пока вы просто 
 импортируете `ExecutionContext.Implicits.global`, и вам не нужно беспокоиться об этом.
 
-![alt text](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/images/Future.png "Future")
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/Future.png "Future")
 
 Теперь немного о вопросе дизайна. Как только у вас есть функция, которая выполняет обратный вызов этой формы. Поэтому, 
 если обратный вызов, который набрал `Try [T]` в `Unit`, это означает, что эта функция внутренне, вероятно, будет лучше сочетаться 
@@ -82,10 +82,10 @@ onComplete будет принимать два обратных вызова о
 обратного вызова побочный эффект будет происходить только один раз. Так что это очень важно с будущим.
 Большое вам спасибо, и увидим вас в следующей лекции, где мы поговорим о функциях более высокого порядка на фьючерсах.
 
-![alt text](https://github.com/steklopod/Timely-Effects/blob/master/src/main/resources/images/future-thread.jpg "Future 2")
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/future-thread.jpg "Future 2")
 
 
 _Если этот проект окажется полезным тебе - нажми на кнопочку **`★`** в правом верхнем углу._
 
 
-[<= содержание](https://github.com/steklopod/Timely-Effects/blob/master/readme.md)
+[<= содержание](https://github.com/steklopod/Parallel-Programming/blob/master/readme.md)
