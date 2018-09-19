@@ -14,15 +14,16 @@
 
 _Основной принцип_: проблему можно разделить на подзадачи, каждая из которых может быть решена одновременно.
 
-### Содержание:
+* [Эффект задержки (вступление)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/theory_1.md)
 
-* [0 - Эффект задержки (вступление)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/theory_1.md)
 
-* [1 - Параллельность уровня задачи](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/task_level_parallelism.md)
+### Futures & Promises
+
+* [Контекст выполнения (Execution Context)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/ExecutionContext.md)
+
 
 * [Монада Future[T]](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Future.md)
 
-* [Наблюдатель (Observable)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Observable.md)
 
 ___
 
