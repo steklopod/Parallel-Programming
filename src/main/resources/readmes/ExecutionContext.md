@@ -164,6 +164,8 @@
 Вызов `doSomethingElse` может либо выполняться в потоке `doSomething`, либо в основном потоке и поэтому быть либо 
 асинхронным, либо синхронным. Как поясняется здесь, обратный вызов не должен быть обоим.
 
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/future-thread.jpg "Future 2")
+
 
 _Если этот проект окажется полезным тебе - нажми на кнопочку **`★`** в правом верхнем углу._
 
