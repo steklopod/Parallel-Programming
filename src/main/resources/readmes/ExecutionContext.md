@@ -66,7 +66,7 @@
 Как указано выше, `ForkJoinPool` может увеличивать количество потоков за пределами его `parallelismLevel` при наличии 
 блокировки вычислений. Как объясняется в API ForkJoinPool, это возможно только в том случае, если пул явно уведомлен:
 
-![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/future-thread.jpg "Future 2")
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/Future.png "Future 1")
 
 ```scala
     import scala.concurrent.Future

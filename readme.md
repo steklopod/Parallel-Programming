@@ -9,14 +9,13 @@
 
 _Основной принцип_: проблему можно разделить на подзадачи, каждая из которых может быть решена одновременно.
 
-* [Эффект задержки (вступление)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/theory_1.md)
+* [Вступление](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/theory_1.md)
 
+* [1 - Контекст выполнения (Execution Context)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/ExecutionContext.md)
 
-### Futures & Promises
+* [2 - Монада  Будущее (Future[T])](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Future.md)
 
-* [Контекст выполнения (Execution Context)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/ExecutionContext.md)
-
-* [Монада  Будущее (Future[T])](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Future.md)
+* [2.1 - Обратные вызовы (Callbacks)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Callbacks.md)
 
 ___
 
