@@ -11,6 +11,8 @@
 вызов вызывается асинхронно после завершения будущего. Если будущее будет завершено при регистрации обратного вызова, 
 то обратный вызов может быть выполнен либо асинхронно, либо последовательно в одном потоке.
 
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/FutureStatesAndValues.jpeg)
+
 Наиболее общей формой регистрации обратного вызова является использование метода `onComplete`, который выполняет функцию 
 обратного вызова типа `Try[T] => U`. Обратный вызов применяется к значению типа `Success[T]`, если будущее завершается 
 успешно или к значению типа `Failure[T]` в противном случае.
@@ -22,6 +24,8 @@
 `Failure[T]` содержит больше информации, чем просто простую нить, говоря, почему значение не существует. В то же время 
 вы можете придумать `Try[T]` как специальную версию `Either[Throwable, T]`, специализированную для случая, когда левое 
 значение является `Throwable`.
+
+![alt text](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/images/either.png)
 
 Возвращаясь к нашему примеру в социальной сети, предположим, что мы хотим получить список наших последних сообщений и 
 отобразить их на экране. Мы делаем это, вызывая метод `getRecentPosts`, который возвращает `List[String]` - список последних 
@@ -37,6 +41,37 @@
     f onComplete {
       case Success(posts) => for (post <- posts) println(post)
       case Failure(t) => println("An error has occurred: " + t.getMessage)
+    }
+```
+
+Метод `onComplete` является общим в том смысле, что он позволяет клиенту обрабатывать результат как неудачных, так и 
+успешных будущих вычислений. В случае, когда нужно обрабатывать только успешные результаты, можно использовать обратный вызов `foreach`:
+
+```scala
+    val f: Future[List[String]] = Future {
+      session.getRecentPosts
+    }
+    
+    f foreach { posts =>
+      for (post <- posts) println(post)
+    }
+```
+
+`Future` обеспечивают чистый способ обработки только неудачных результатов с использованием неудачной проекции(`failed` projection),
+ которая преобразует `Failure[Throwable]` в `Success[Throwable]`. Пример этого показан в разделе ниже о (прогнозах)[https://docs.scala-lang.org/overviews/core/futures.html#projections].
+
+Возвращаясь к предыдущему примеру с поиском первого появления ключевого слова, вы можете распечатать позицию ключевого слова 
+на экране:
+
+```scala
+    val firstOccurrence: Future[Int] = Future {
+      val source = scala.io.Source.fromFile("myText.txt")
+      source.toSeq.indexOfSlice("мое Ключевое Слово")
+    }
+    
+    firstOccurrence onComplete {
+      case Success(idx) => println("Ключевое слово сначала появляется в позиции: " + idx)
+      case Failure(t) => println("Не удалось обработать файл: " + t.getMessage)
     }
 ```
 
