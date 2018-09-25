@@ -15,7 +15,9 @@ _Основной принцип_: проблему можно разделит�
 
 * [2 - Монада  Будущее (Future[T])](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Future.md)
 
-*    [2.1 - Обратные вызовы (Callbacks)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Callbacks.md)
+* [2.1 - Обратные вызовы (Callbacks)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Callbacks.md)
+
+* [2.1 - Композиция функций и for-comprehensions](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Functional_Composition.md)
 
 ___
 
