@@ -19,6 +19,8 @@ _Основной принцип_: проблему можно разделит�
 
 * [2.1 - Композиция функций и for-comprehensions](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Functional_Composition.md)
 
+* [2.2 - Проекции](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Projections.md)
+
 ___
 
 Многие из нас не видят разницу между параллельным (parallel) и действующий одновременно (concurrent) программированием. 
