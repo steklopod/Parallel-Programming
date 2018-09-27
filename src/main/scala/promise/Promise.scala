@@ -1,11 +1,8 @@
-package practic
+package promise
 
-import com.sun.net.httpserver.Authenticator.Success
-
-import scala.concurrent.{Await, Future, Promise}
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration.Duration
-import scala.util.Success
+import scala.concurrent.{Await, Future, Promise}
 
 class FuturePractic {
 }
@@ -23,7 +20,7 @@ object ThreadApp extends App {
   println(Thread.currentThread().getName)
 
   val f = Future {
-    //    println(Thread.currentThread().getName)
+        println(Thread.currentThread().getName)
     1
   }
 
