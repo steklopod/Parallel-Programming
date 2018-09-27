@@ -23,6 +23,8 @@ _Основной принцип_: проблему можно разделит�
 
 * [3 - Блокировка](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Blocking.md)
 
+* [4 - Исключения (Exceptions)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Exceptions.md)
+
 ___
 
 Многие из нас не видят разницу между параллельным (parallel) и действующий одновременно (concurrent) программированием. 
