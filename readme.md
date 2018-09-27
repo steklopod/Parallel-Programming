@@ -27,6 +27,8 @@ _Основной принцип_: проблему можно разделит�
 
 * [5 - Обещания (Promises)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Promises.md)
 
+* [6 - Утилиты (Utilities)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Utilities.md)
+
 ___
 
 Многие из нас не видят разницу между параллельным (parallel) и действующий одновременно (concurrent) программированием. 
