@@ -1,38 +1,60 @@
 package future
 
+import java.lang.Thread._
+
 import scala.concurrent.ExecutionContext.Implicits.global
-import scala.concurrent.duration.Duration
-import scala.concurrent.{Await, Future}
+import scala.concurrent.Future
+import scala.util._
 
 object Future1 extends App {
   val printFuture = Future {
     println("Привет из будущего.")
-    Thread.sleep(700)
+    sleep(700)
     println(".")
-    Thread.sleep(700)
+    sleep(700)
     println(" .")
-    Thread.sleep(700)
+    sleep(700)
     println("  .")
-    Thread.sleep(700)
+    sleep(700)
     println("    Привет после паузы")
 
   }
-  Await.result(printFuture, Duration.Inf)
+  sleep(3000) //не даем JVM умереть
 }
 
 object Future2 extends App {
-  val calcFuture = Future {
-    Thread.sleep(1000)
-    666
+  println("starting calculation ...")
+  val f = Future {
+    sleep(Random.nextInt(500))
+    42
   }
-  val stringFuture = Future { "Hello from second Future" }
+  println("before onComplete")
 
-  val f = for {
-    calcFuture <- calcFuture
-    stringFuture <- stringFuture
-  } yield {
-    println(s"$calcFuture $stringFuture")
+  f.onComplete {
+    case Success(value) => println(s"Got the callback, meaning = $value")
+    case Failure(e)     => e.printStackTrace
   }
+  // do the rest of your work
+  println("A ..."); sleep(100)
+  println("B ..."); sleep(100)
+  println("C ..."); sleep(100)
+  println("D ..."); sleep(100)
+  println("E ..."); sleep(100)
+  println("F ..."); sleep(100)
+  sleep(2000)
+}
 
-  Await.result(f, Duration.Inf)
+object Future3 extends App {
+  val a = Future { sleep(1000); 1 }
+  val b = Future { sleep(100); 2 }
+  val c = Future { sleep(10); 3 }
+
+  val result = Future.firstCompletedOf(Seq(a, b, c))
+
+  result.onComplete {
+    case Success(value) => println(s"Значение первого завершившегося фьючерса = $value")
+    case Failure(e)     => e.printStackTrace
+  }
+  sleep(3000) //не даем JVM умереть
+
 }
