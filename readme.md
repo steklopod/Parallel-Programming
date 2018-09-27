@@ -25,6 +25,8 @@ _Основной принцип_: проблему можно разделит�
 
 * [4 - Исключения (Exceptions)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Exceptions.md)
 
+* [5 - Обещания (Promises)](https://github.com/steklopod/Parallel-Programming/blob/master/src/main/resources/readmes/Promises.md)
+
 ___
 
 Многие из нас не видят разницу между параллельным (parallel) и действующий одновременно (concurrent) программированием. 
