@@ -112,11 +112,9 @@ object ScalaShop {
     actionControls.add(stepbutton)
 
     val clearButton = new JButton("Reload")
-    clearButton.addActionListener(new ActionListener {
-      def actionPerformed(e: ActionEvent) {
-        canvas.reload()
-      }
-    })
+    clearButton.addActionListener((e: ActionEvent) => {
+    canvas.reload()
+  })
     actionControls.add(clearButton)
 
     val info = new JTextArea("              ")
@@ -127,42 +125,36 @@ object ScalaShop {
 
     val fileMenu = new JMenu("File")
     val openMenuItem = new JMenuItem("Open...")
-    openMenuItem.addActionListener(new ActionListener {
-      def actionPerformed(e: ActionEvent) {
-        val fc = new JFileChooser()
-        if (fc.showOpenDialog(ScalaShopFrame.this) == JFileChooser.APPROVE_OPTION) {
-          canvas.loadFile(fc.getSelectedFile.getPath)
-        }
-      }
-    })
+    openMenuItem.addActionListener((e: ActionEvent) => {
+    val fc = new JFileChooser()
+    if (fc.showOpenDialog(ScalaShopFrame.this) == JFileChooser.APPROVE_OPTION) {
+      canvas.loadFile(fc.getSelectedFile.getPath)
+    }
+  })
     fileMenu.add(openMenuItem)
     val saveMenuItem = new JMenuItem("Save...")
-    saveMenuItem.addActionListener(new ActionListener {
-      def actionPerformed(e: ActionEvent) {
-        val fc = new JFileChooser("epfl-view.png")
-        if (fc.showSaveDialog(ScalaShopFrame.this) == JFileChooser.APPROVE_OPTION) {
-          canvas.saveFile(fc.getSelectedFile.getPath)
-        }
-      }
-    })
+    saveMenuItem.addActionListener((e: ActionEvent) => {
+    val fc = new JFileChooser("epfl-view.png")
+    if (fc.showSaveDialog(ScalaShopFrame.this) == JFileChooser.APPROVE_OPTION) {
+      canvas.saveFile(fc.getSelectedFile.getPath)
+    }
+  })
     fileMenu.add(saveMenuItem)
     val exitMenuItem = new JMenuItem("Exit")
-    exitMenuItem.addActionListener(new ActionListener {
-      def actionPerformed(e: ActionEvent) {
-        sys.exit(0)
-      }
-    })
+    exitMenuItem.addActionListener((e: ActionEvent) => {
+    sys.exit(0)
+  })
     fileMenu.add(exitMenuItem)
 
     mainMenuBar.add(fileMenu)
 
     val helpMenu = new JMenu("Help")
     val aboutMenuItem = new JMenuItem("About")
-    aboutMenuItem.addActionListener(new ActionListener {
-      def actionPerformed(e: ActionEvent) {
-        JOptionPane.showMessageDialog(null, "ScalaShop, the ultimate image manipulation tool\nBrought to you by EPFL, 2015")
-      }
-    })
+    aboutMenuItem.addActionListener((e: ActionEvent) => {
+    JOptionPane.showMessageDialog(
+      null,
+      "ScalaShop, the ultimate image manipulation tool\nBrought to you by EPFL, 2015")
+  })
     helpMenu.add(aboutMenuItem)
 
     mainMenuBar.add(helpMenu)

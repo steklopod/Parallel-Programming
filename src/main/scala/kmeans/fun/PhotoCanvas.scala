@@ -16,9 +16,7 @@ class PhotoCanvas extends JComponent {
 
   val timerDelay = 100
   val timer =
-    new Timer(timerDelay, new ActionListener() {
-      def actionPerformed(e: ActionEvent): Unit = repaint()
-    })
+    new Timer(timerDelay, (e: ActionEvent) => repaint())
 
   override def getPreferredSize = {
     new Dimension(image.width, image.height)
