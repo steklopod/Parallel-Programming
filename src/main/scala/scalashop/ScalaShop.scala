@@ -4,6 +4,7 @@ import java.awt._
 import java.awt.event._
 
 import javax.swing._
+import org.scalameter._
 
 //Описание задачи в pdf-файле ...\resources\scalashop\scalashop.pdf
 object ScalaShop {
@@ -49,7 +50,7 @@ object ScalaShop {
         val time = measure {
           canvas.applyFilter(getFilterName, getNumTasks, getRadius)
         }
-        updateInformationBox(time)
+        updateInformationBox(time.value)
       }
     })
     controls.add(stepbutton)

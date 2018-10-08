@@ -1,4 +1,6 @@
 package scalashop
+import org.scalameter._
+import common._
 
 object VerticalBoxBlurRunner {
 
@@ -25,7 +27,7 @@ object VerticalBoxBlurRunner {
       VerticalBoxBlur.parBlur(src, dst, numTasks, radius)
     }
     println(s"fork/join blur time: $partime ms")
-    println(s"speedup: ${seqtime / partime}")
+//    println(s"speedup: ${seqtime / partime}")
   }
 
 }
@@ -72,7 +74,7 @@ object VerticalBoxBlur {
     })
 
     // finally join
-    allTasks.map(task => task.join()) // each element of allTasks is a task
+    allTasks.foreach(task => task.join()) // each element of allTasks is a task
   }
 
 }

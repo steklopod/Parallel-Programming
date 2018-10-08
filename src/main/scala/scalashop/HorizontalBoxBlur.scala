@@ -27,7 +27,7 @@ object HorizontalBoxBlurRunner {
       HorizontalBoxBlur.parBlur(src, dst, numTasks, radius)
     }
     println(s"fork/join blur time: $partime ms")
-    println(s"speedup: ${seqtime / partime}")
+//    println(s"speedup: ${seqtime / partime}")
   }
 }
 
