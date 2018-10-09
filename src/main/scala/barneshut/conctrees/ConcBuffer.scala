@@ -4,14 +4,15 @@ import scala.reflect.ClassTag
 import org.scalameter._
 
 class ConcBuffer[@specialized(Byte, Char, Int, Long, Float, Double) T: ClassTag](
-  val k: Int, private var conc: Conc[T]
+    val k: Int,
+    private var conc: Conc[T]
 ) extends Traversable[T] {
   require(k > 0)
 
   def this() = this(128, Conc.Empty)
-  
+
   private var chunk: Array[T] = new Array(k)
-  private var lastSize: Int = 0
+  private var lastSize: Int   = 0
 
   def foreach[U](f: T => U): Unit = {
     conc.foreach(f)
@@ -64,9 +65,9 @@ object ConcBufferRunner {
   val standardConfig = config(
     Key.exec.minWarmupRuns -> 20,
     Key.exec.maxWarmupRuns -> 40,
-    Key.exec.benchRuns -> 60,
-    Key.verbose -> true
-  ) withWarmer(new Warmer.Default)
+    Key.exec.benchRuns     -> 60,
+    Key.verbose            -> true
+  ) withWarmer (new Warmer.Default)
 
   def main(args: Array[String]) {
     val size = 1000000
@@ -78,7 +79,9 @@ object ConcBufferRunner {
       val time = standardConfig measure {
         val parallelized = strings.par
         parallelized.tasksupport = taskSupport
-        parallelized.aggregate(new ConcBuffer[String])(_ += _, _ combine _).result
+        parallelized
+          .aggregate(new ConcBuffer[String])(_ += _, _ combine _)
+          .result
       }
       println(s"p = $p, time = $time ms")
     }

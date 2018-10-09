@@ -14,38 +14,41 @@ object Conc {
 
   case class <>[+T](left: Conc[T], right: Conc[T]) extends Conc[T] {
     val level = 1 + math.max(left.level, right.level)
-    val size = left.size + right.size
+    val size  = left.size + right.size
   }
 
   sealed trait Leaf[T] extends Conc[T] {
-    def left = sys.error("Leaves do not have children.")
+    def left  = sys.error("Leaves do not have children.")
     def right = sys.error("Leaves do not have children.")
   }
 
   case object Empty extends Leaf[Nothing] {
     def level = 0
-    def size = 0
+    def size  = 0
   }
 
-  class Single[@specialized(Int, Long, Float, Double) T](val x: T) extends Leaf[T] {
-    def level = 0
-    def size = 1
+  class Single[@specialized(Int, Long, Float, Double) T](val x: T)
+      extends Leaf[T] {
+    def level             = 0
+    def size              = 1
     override def toString = s"Single($x)"
   }
 
-  class Chunk[@specialized(Int, Long, Float, Double) T](val array: Array[T], val size: Int, val k: Int)
-  extends Leaf[T] {
-    def level = 0
+  class Chunk[@specialized(Int, Long, Float, Double) T](val array: Array[T],
+                                                        val size: Int,
+                                                        val k: Int)
+      extends Leaf[T] {
+    def level             = 0
     override def toString = s"Chunk(${array.mkString("", ", ", "")}; $size; $k)"
   }
 
   case class Append[+T](left: Conc[T], right: Conc[T]) extends Conc[T] {
     val level = 1 + math.max(left.level, right.level)
-    val size = left.size + right.size
+    val size  = left.size + right.size
     override def normalized = {
       def wrap[T](xs: Conc[T], ys: Conc[T]): Conc[T] = (xs: @unchecked) match {
         case Append(ws, zs) => wrap(ws, zs <> ys)
-        case xs => xs <> ys
+        case xs             => xs <> ys
       }
       wrap(left, right)
     }
@@ -97,42 +100,46 @@ object Conc {
 
   def appendTop[T](xs: Conc[T], ys: Leaf[T]): Conc[T] = (xs: @unchecked) match {
     case xs: Append[T] => append(xs, ys)
-    case _ <> _ => new Append(xs, ys)
-    case Empty => ys
-    case xs: Leaf[T] => new <>(xs, ys)
+    case _ <> _        => new Append(xs, ys)
+    case Empty         => ys
+    case xs: Leaf[T]   => new <>(xs, ys)
   }
   @tailrec private def append[T](xs: Append[T], ys: Conc[T]): Conc[T] = {
     if (xs.right.level > ys.level) new Append(xs, ys)
     else {
       val zs = new <>(xs.right, ys)
       xs.left match {
-        case ws @ Append(_, _) => append(ws, zs)
+        case ws @ Append(_, _)          => append(ws, zs)
         case ws if ws.level <= zs.level => ws <> zs
-        case ws => new Append(ws, zs)
+        case ws                         => new Append(ws, zs)
       }
     }
   }
 
-  def traverse[@specialized(Int, Long, Float, Double) T, @specialized(Int, Long, Float, Double) U](xs: Conc[T], f: T => U): Unit = (xs: @unchecked) match {
-    case left <> right =>
-      traverse(left, f)
-      traverse(right, f)
-    case s: Single[T] =>
-      f(s.x)
-    case c: Chunk[T] =>
-      val a = c.array
-      val sz = c.size
-      var i = 0
-      while (i < sz) {
-        f(a(i))
-        i += 1
-      }
-    case Empty =>
-    case Append(left, right) =>
-      traverse(left, f)
-      traverse(right, f)
-    case _ =>
-      sys.error("All cases should have been covered: " + xs + ", " + xs.getClass)
-  }
+  def traverse[@specialized(Int, Long, Float, Double) T,
+               @specialized(Int, Long, Float, Double) U](xs: Conc[T],
+                                                         f: T => U): Unit =
+    (xs: @unchecked) match {
+      case left <> right =>
+        traverse(left, f)
+        traverse(right, f)
+      case s: Single[T] =>
+        f(s.x)
+      case c: Chunk[T] =>
+        val a  = c.array
+        val sz = c.size
+        var i  = 0
+        while (i < sz) {
+          f(a(i))
+          i += 1
+        }
+      case Empty =>
+      case Append(left, right) =>
+        traverse(left, f)
+        traverse(right, f)
+      case _ =>
+        sys.error(
+          "All cases should have been covered: " + xs + ", " + xs.getClass)
+    }
 
 }
